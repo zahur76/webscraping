@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre&family=Bakbak+One&family=Fredoka:wght@300&family=M+PLUS+Rounded+1c:wght@300&family=Maitree&family=Manuale&family=Montserrat:wght@400;600&family=Public+Sans:wght@700&family=Source+Code+Pro:wght@300&display=swap');
+
+.header {
+    background-color: #2d385a;
+}
+
+.maitree {
+    font-family: 'Maitree', serif;
+}
+
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.text-justify {
+    text-align: justify;
+}
