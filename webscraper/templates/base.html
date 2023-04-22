@@ -42,13 +42,17 @@
   </head>
   <body>      
         <div class="row m-0 header mb-2">
-            <div class="col-6 h1 text-light montserrat fw-bold my-auto p-2">Data-Xtract <i class="fa-solid fa-database"></i></div>
-            <div class="col-6 text-end my-auto">contact</div>
+            <a href="{% url 'home' %}" class="col-8 h1 text-light montserrat fw-bold my-auto p-2 text-decoration-none hover">Data-Xtract <i class="fa-solid fa-database"></i></a>
+            <div class="col-4 text-end my-auto pe-3 text-light"><div class="border border-light d-inline p-1 contact rounded">Contact Us</div></div>
         </div>       
-        <div class="h6 montserrat p-2">Managed Data Extraction</div>
+        <div class="h6 montserrat p-2 fst-italic">Managed Data Extraction</div>
         {% block content %}
 
-        {% endblock %}      
+        {% endblock %}
+        
+        <footer class="bg-danger">
+          footer
+        </footer>
   </body>
   
   {% block vue_js %}
