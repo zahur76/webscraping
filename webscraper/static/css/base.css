@@ -19,3 +19,7 @@
 .hover:hover {
     opacity: 0.6;
 }
+
+.bg-custom {
+    background-color: #fddc99;
+}
