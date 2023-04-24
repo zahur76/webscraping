@@ -22,10 +22,10 @@
             <!-- <div class="text-center">
                 <i class="fa-solid fa-database h1 p-3"></i> <i class="fa-solid fa-arrow-right h1 p-3"></i> <i class="fa-regular fa-file h1 p-3"></i>
             </div> -->
-            <div class="h1 maitree fw-bolder mt-3 text-center border-bottom border-secondary">Why Us?</div>
-            <div class="p-3"><i class="fa-regular fa-circle small"></i> We provide data extraction services while you focus on management of your core business.</div>
+            <div class="h1 maitree fw-bolder mt-5 text-shadow text-start"><span class="border-start border-warning border-5 ps-2 my-auto">Why Us?</span></div>
+            <div class="p-3"><i class="fa-regular fa-circle small"></i> We provide data extraction services while you focus on your core business.</div>
             <div class="p-3">
-                <i class="fa-regular fa-circle small"></i>  Extracted data from Over 10000's sites using various technologies depending on website design.
+                <i class="fa-regular fa-circle small"></i>  Extracted data from Over 10000's sites using various scraping technologies depending on website securities.
             </div>  
 
             <!-- <div class="text-center">
@@ -33,7 +33,7 @@
             </div> -->
 
 
-            <div class="h1 maitree fw-bolder mt-3 text-center border-bottom border-secondary">What we do</div>
+            <div class="h1 maitree fw-bolder mt-3 text-start text-shadow"><span class="border-start border-warning border-5 ps-2 my-auto">What We Do</span></div>
             <div class="p-3">
                 <i class="fa-regular fa-circle small"></i> Provide data extraction services tailored to suit your needs using customised web crawlers.
             </div>
@@ -53,21 +53,22 @@
         <div class="d-none d-md-block col-md-2 col-lg-3"></div>
         <div class="d-none d-md-block col-md-2 col-lg-3"></div>
         <div class="col-12 col-md-8 col-lg-6 montserrat text-justify">
-            <div class="h1 maitree fw-bolder mt-3 text-center border-bottom border-secondary">Contact Us</div> 
+            <div class="h1 maitree fw-bolder mt-3 text-shadow"><span class="border-start border-warning border-5 ps-2 my-auto">Contact Us</span></div> 
             <div class="maitree fw-bolder p-3">Please provide a description of your project requirements in the form below and we will get back to you within 24 hours.</div>
-            <form action="#" method="post" class="p-5 border mt-3 mb-5 rounded-2">
+            <form action="{% url 'send_mail' %}" method="post" class="p-3 p-md-5 border mt-3 mb-5 rounded-2">
+                {% csrf_token %}
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-dark border-light text-light" id="basic-addon1">@</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" placeholder="Full Name" name="name" aria-label="Username" aria-describedby="basic-addon1" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-dark border-light text-light" id="basic-addon1"><i class="fa-regular fa-envelope"></i></span>
-                    <input type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="email" class="form-control" placeholder="Email" name="email" aria-label="Email" aria-describedby="basic-addon1" required>
                 </div>
                 <div class="input-group">
-                    <textarea class="form-control" aria-label="With textarea" placeholder="Project Details"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" name="description" placeholder="Project Details" required></textarea>
                 </div>
-                <div type="submit" class="btn btn-outline-light mt-3">Submit</div>
+                <button type="submit" class="btn btn-outline-light mt-3">Submit</button>
             </form>
         </div>
         <div class="d-none d-md-block col-md-2 col-lg-3"></div>

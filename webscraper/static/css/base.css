@@ -6,6 +6,11 @@
 
 .maitree {
     font-family: 'Maitree', serif;
+    
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 7px rgb(0, 0, 0);
 }
 
 .montserrat {
