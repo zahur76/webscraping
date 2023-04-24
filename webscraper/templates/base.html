@@ -40,7 +40,25 @@
 
     <title>Web Scrapper</title>
   </head>
-  <body class="bg-dark">      
+  <body class="bg-dark">
+        <!-- flash-messages -->
+        {% if messages %}
+            <div class="message-container text-center">
+                {% for message in messages %}
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        {% else %}
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}        
+            </div>
+        {% endif %}
         <div class="row m-0 bg-dark mb-2 border-bottom border-light">
             <a href="{% url 'home' %}" class="col-8 h1 text-light montserrat fw-bold my-auto p-2 text-decoration-none hover">Data-Xtract <i class="fa-solid fa-database"></i></a>
             <div class="col-4 text-end my-auto pe-3 text-light"><div class="border border-light d-inline p-1 contact rounded">Contact Us</div></div>

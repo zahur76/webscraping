@@ -28,3 +28,24 @@
 .bg-custom {
     background-color: #fddc99;
 }
+
+/* Flash messages */
+.message-container {
+    position: absolute;
+    top: 75px;
+    right: 50px !important;
+    opacity: 1 !important;
+    z-index: 999;
+}
+
+.flash-message {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 50px !important;
+    opacity: 1 !important;
+    z-index: 999;
+    background-color: #929fba;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+}
