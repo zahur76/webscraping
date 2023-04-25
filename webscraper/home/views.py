@@ -14,20 +14,45 @@ def index(request):
 
 def send_mail_to(request):
     if request.method == "POST":
-        
         try:
-            subject_ = 'Request Received'
-            body_ = request.POST['description']
+            subject_ = "Data Extraction Enquiry Received"
+
+            body = render_to_string(
+                "home/emails/confirmation_email_body.txt",
+                {
+                    "name": request.POST["name"],
+                    "contact_email": request.POST["email"],
+                    "description": request.POST["description"],
+                },
+            )
 
             send_mail(
                 subject_,
+                body,
+                DEFAULT_FROM_EMAIL,
+                ["zahurmeerun@hotmail.com"],  # to mail
+            )
+
+            body_ = render_to_string(
+                "home/emails/confirmation_email_client.txt",
+                {
+                    "name": request.POST["name"],
+                    "contact_email": request.POST["email"],
+                    "description": request.POST["description"],
+                },
+            )
+
+            send_mail(
+                "Data Extraction Enquiry",
                 body_,
                 DEFAULT_FROM_EMAIL,
-                ['zahurmeerun@hotmail.com'] #to mail
+                [request.POST["email"]],  # to mail
             )
-            
-            messages.success(request, "Thanks for your order!")
+
+            messages.success(request, "Enquiry Sent")
             return redirect(reverse("home"))
 
-        except:
+        except Exception as e:
+            print(e)
+            messages.success(request, "Error, Please try again!")
             return redirect(reverse("home"))

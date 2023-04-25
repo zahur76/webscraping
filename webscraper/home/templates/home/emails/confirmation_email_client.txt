@@ -1,0 +1,11 @@
+Hello {{ name }},
+
+Thanks for your enquiry.
+
+Our team will get back to you within 24 hours.
+
+If you have any additional questions please reply to this email.
+
+Sincerely,
+
+Data Xtract Team
