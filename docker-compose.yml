@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  webscraping:
+    image: webscraping
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+    ports:
+      - 8000:8000
