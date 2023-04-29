@@ -49,7 +49,7 @@ def send_mail_to(request):
                 [request.POST["email"]],  # to mail
             )
 
-            messages.success(request, "Enquiry Sent")
+            messages.success(request, "Thank you, your enquiry has been received")
             return redirect(reverse("home"))
 
         except Exception as e:
