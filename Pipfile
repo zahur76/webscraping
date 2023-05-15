@@ -8,10 +8,10 @@ djangorestframework = "*"
 drf-spectacular = "*"
 fontawesomefree = "*"
 gunicorn = "*"
-whitenoise = "*"
 
 [dev-packages]
 black = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.10"
