@@ -16,41 +16,43 @@ def send_mail_to(request):
     if request.method == "POST":
         try:
             subject_ = "Data Extraction Enquiry Received"
+            
+            if len(request.POST["description"]) > 100:
 
-            body = render_to_string(
-                "home/emails/confirmation_email_body.txt",
-                {
-                    "name": request.POST["name"],
-                    "contact_email": request.POST["email"],
-                    "description": request.POST["description"],
-                },
-            )
+                body = render_to_string(
+                    "home/emails/confirmation_email_body.txt",
+                    {
+                        "name": request.POST["name"],
+                        "contact_email": request.POST["email"],
+                        "description": request.POST["description"],
+                    },
+                )
 
-            send_mail(
-                subject_,
-                body,
-                DEFAULT_FROM_EMAIL,
-                ["zahurmeerun@hotmail.com"],  # to mail
-            )
+                send_mail(
+                    subject_,
+                    body,
+                    DEFAULT_FROM_EMAIL,
+                    ["zahurmeerun@hotmail.com"],  # to mail
+                )
 
-            body_ = render_to_string(
-                "home/emails/confirmation_email_client.txt",
-                {
-                    "name": request.POST["name"],
-                    "contact_email": request.POST["email"],
-                    "description": request.POST["description"],
-                },
-            )
+                body_ = render_to_string(
+                    "home/emails/confirmation_email_client.txt",
+                    {
+                        "name": request.POST["name"],
+                        "contact_email": request.POST["email"],
+                        "description": request.POST["description"],
+                    },
+                )
 
-            send_mail(
-                "Data Extraction Enquiry",
-                body_,
-                DEFAULT_FROM_EMAIL,
-                [request.POST["email"]],  # to mail
-            )
+                send_mail(
+                    "Data Extraction Enquiry",
+                    body_,
+                    DEFAULT_FROM_EMAIL,
+                    [request.POST["email"]],  # to mail
+                )
 
-            messages.success(request, "Thank you, your enquiry has been received")
-            return redirect(reverse("home"))
+                messages.success(request, "Thank you, your enquiry has been received")
+                return render(request, "home/index.html")
 
         except Exception as e:
             print(e)
